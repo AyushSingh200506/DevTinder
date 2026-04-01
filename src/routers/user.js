@@ -4,7 +4,7 @@ import ConnectionRequestModel from "../models/connectionRequest.js";
 import User from "../models/user.js";
 
 const userRouter = express.Router();
-const SAFE_USER_DATA = "firstName lastName age gender about skills";
+const SAFE_USER_DATA = "firstName lastName age gender about skills photoURL";
 
 userRouter.get("/user/requests/received", userAuth, async (req, res) => {
     try{
