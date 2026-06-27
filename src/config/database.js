@@ -1,5 +1,13 @@
 import mongoose from 'mongoose';
 
-const database = () => mongoose.connect("mongodb+srv://ayushsingh200506_db_user:jeEYekF16AtwtFI5@namastenode.5bdtfo6.mongodb.net/devTinder");
+const database = () => {
+  const mongoUri = process.env.MONGODB_URI;
+
+  if (!mongoUri) {
+    throw new Error('MONGODB_URI is not defined');
+  }
+
+  return mongoose.connect(mongoUri);
+};
 
 export default database;
